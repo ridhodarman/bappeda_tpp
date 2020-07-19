@@ -19,6 +19,7 @@ if(isset($_POST['golongan-edit'])) {
             ';
     }
     else {
+        echo 'Query Error : '.mysqli_errno($con). ' - '.mysqli_error($con);
         echo '<script>
             alert("gagal mengubah data!")
             </script>

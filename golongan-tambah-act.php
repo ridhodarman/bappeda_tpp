@@ -15,6 +15,7 @@ if(isset($_POST['golongan'])) {
             ';
     }
     else {
+        echo 'Query Error : '.mysqli_errno($con). ' - '.mysqli_error($con);
         echo '<script>
             alert("gagal menambahkan data!")
             </script>

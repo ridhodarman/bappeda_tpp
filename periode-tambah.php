@@ -17,13 +17,13 @@
 
     <div class="card">
       <div class="card-body">
-        <form method="post" action="penghasilan-periode-tambah-act.php">
+        <form method="post" action="periode-tambah-act.php">
             
             <label>Tanggal Penerimaan Penghasilan</label>
-            <input type="date" class="form-control mb-3" required="true">
+            <input type="date" class="form-control mb-3" required="true" name="tanggal">
 
             <center>
-                <button type="submit" class="btn btn-success mx-sm-3">Tambah Data</button>
+                <button type="submit" class="btn btn-success mx-sm-3" name="periode">Tambah Data</button>
                 <a href="periode.php">
                     <button type="button" class="btn btn-secondary">Kembali</button>
                 </a>

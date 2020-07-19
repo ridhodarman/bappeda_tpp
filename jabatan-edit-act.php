@@ -25,8 +25,9 @@ if(isset($_POST['jabatan-edit'])) {
             ';
     }
     else {
+        echo 'Query Error : '.mysqli_errno($con). ' - '.mysqli_error($con);
         echo '<script>
-            alert("gagal menambahkan data!")
+            alert("gagal mengubah data!")
             </script>
             <meta http-equiv="REFRESH" content="0.1;url=jabatan-edit.php?id='.$id.'">
             ';

@@ -22,7 +22,7 @@
 
 								<div style="padding-bottom: 2%">
 									<label>Besaran Pajak: ( % )</label>
-									<input type="number" class="form-control" name="pajak" value="0">
+									<input type="number" class="form-control" name="pajak" value="0" required="">
 								</div>
 
 								<div style="text-align: center;">

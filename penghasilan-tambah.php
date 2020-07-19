@@ -21,6 +21,7 @@
       			<div class="card-body">
 		            <form action="penghasilan-tambah-act.php" method="post">
 			                    <div style="padding-bottom: 2%">
+			                    	<input type="hidden" name="periode" value="<?php echo $periode; ?>">
 									<label>Nama Pegawai:</label>
 									<select class="form-control" name="pegawai" id="pegawai2" required>
 										<option></option>
@@ -36,16 +37,16 @@
 						    	
 						    	<div style="padding-bottom: 2%">
 									<label>Potongan Kehadiran: (%)</label>
-									<input type="number" class="form-control" name="kehadiran" >
+									<input type="number" class="form-control" name="kehadiran" required="">
 								</div>
 
 								<div style="padding-bottom: 2%">
 									<label>Nilai SKP: </label>
-									<input type="number" class="form-control" name="skp" >
+									<input type="number" class="form-control" name="skp" required="">
 								</div>
 
 								<div style="text-align: center;">
-									<button type="submit" class="btn btn-success mx-sm-3">Tambah</button>
+									<button type="submit" class="btn btn-success mx-sm-3" name="penghasilan">Tambah</button>
 									<a href="penghasilan.php?periode=<?php echo $periode ?>">
 										<button type="button" class="btn btn-secondary">Kembali</button>
 									</a>

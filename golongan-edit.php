@@ -34,7 +34,7 @@
 
 								<div style="padding-bottom: 2%">
 									<label>Besaran Pajak: ( % )</label>
-									<input type="number" class="form-control" name="pajak" value="<?php echo $pajak ?>">
+									<input type="number" class="form-control" name="pajak" value="<?php echo $pajak ?>" required="">
 								</div>
 
 								<div style="text-align: center;">

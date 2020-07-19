@@ -14,6 +14,7 @@ if(isset($_GET['id']) && $_GET['nama']!=null) {
             ';
     }
     else {
+        echo 'Query Error : '.mysqli_errno($con). ' - '.mysqli_error($con);
         echo '<script>
             alert("gagal menghapus data!")
             </script>

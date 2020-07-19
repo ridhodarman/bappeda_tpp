@@ -29,43 +29,34 @@
 	                    $nip = $row['nip'];
 	                    $kehadiran = $row['pemotongan_kehadiran'];
 	                    $skp = $row['skp'];
+	                    $nama = $row['nama'];
 	                }
 	                $tgl = date('d F Y', strtotime($tanggal));
 	            ?>
                     <h4 class="mb-0 text-secondary" style="text-align: center; padding-bottom: 3%">
                         Edit Data TPP: 
-                        <span class="text-primary"><?php echo $tgl; ?></span>
+                        <span class="text-primary"><?php echo $tgl; ?></span><br/>
+                        <?php echo $nama." - ".$nip ?>
                     </h4>
 
         	<div class="card">
       			<div class="card-body">
-		            <form action="penghasilan-tambah-act.php" method="post">
-			                    <div style="padding-bottom: 2%">
-									<label>Nama Pegawai:</label>
-									<select class="form-control" name="pegawai" id="pegawai2" required>
-										<option></option>
-			                            <?php                
-			                                $sql=mysqli_query($con, "SELECT nip, nama FROM pegawai order by nama");
-			                                while($row = mysqli_fetch_array($sql))
-			                                {
-			                                    echo"<option value='".$row['nip']."''>".$row['nama']." (".$row['nip'].")</option>";
-			                                }
-			                            ?>
-			                        </select>
-								</div>
+		            <form action="penghasilan-edit-act.php" method="post">
+			                    <input type="hidden" name="nip" value="<?php echo $nip; ?>" required="">
+			                    <input type="hidden" name="periode" value="<?php echo $periode; ?>" required="">
 						    	
 						    	<div style="padding-bottom: 2%">
 									<label>Potongan Kehadiran: (%)</label>
-									<input type="number" class="form-control" name="kehadiran" value="<?php echo $kehadiran; ?>">
+									<input type="number" class="form-control" name="kehadiran" required="" value="<?php echo $kehadiran; ?>">
 								</div>
 
 								<div style="padding-bottom: 2%">
 									<label>Nilai SKP: </label>
-									<input type="number" class="form-control" name="skp" value="<?php echo $skp; ?>">
+									<input type="number" class="form-control" name="skp" required="" value="<?php echo $skp; ?>">
 								</div>
 
 								<div style="text-align: center;">
-									<button type="submit" class="btn btn-success mx-sm-3">Tambah</button>
+									<button type="submit" class="btn btn-success mx-sm-3" name="penghasilan-edit">Simpan</button>
 									<a href="penghasilan.php?periode=<?php echo $periode ?>">
 										<button type="button" class="btn btn-secondary">Kembali</button>
 									</a>

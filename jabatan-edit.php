@@ -29,7 +29,7 @@
         	<div class="card">
       			<div class="card-body">
 		            <form action="jabatan-edit-act.php" method="post">
-                                <input type="hidden" name="id" value="<?php echo $id ?>">
+                                <input type="hidden" name="id" value="<?php echo $id ?>" required="">
 
 			                    <div style="padding-bottom: 2%">
 			                    	<label>Nama Jabatan</label>

@@ -10,6 +10,7 @@
                 $periode = $_GET['periode'];
                 $sql=mysqli_query($con, "SELECT * FROM periode_penerimaan WHERE id_periode='$periode'");
                 while ($data=mysqli_fetch_array($sql)) {
+                    $id = $data['id_periode'];
                     $tanggal = $data['tanggal'];
                 }
             ?>
@@ -29,10 +30,11 @@
         <form method="post" action="periode-edit-act.php">
             
             <label>Tanggal Penerimaan Penghasilan</label>
+            <input type="hidden" name="id" value="<?php echo $id ?>">
             <input type="date" class="form-control mb-3" name="tanggal" required="true" value="<?php echo $tanggal ?>">
 
             <center>
-                <button type="submit" class="btn btn-success mx-sm-3">Tambah Data</button>
+                <button type="submit" class="btn btn-success mx-sm-3" name="periode-edit">Simpan</button>
                 <a href="periode.php">
                     <button type="button" class="btn btn-secondary">Kembali</button>
                 </a>

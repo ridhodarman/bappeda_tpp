@@ -19,6 +19,9 @@
                     $tanggal = $t['tanggal'];
                 }
                 $tgl = date('d F Y', strtotime($tanggal));
+                
+                $periode2 = base64_encode($periode);
+                $tgl2 = base64_encode($tanggal);
             ?>
             <section class="resume-section" id="penghasilan">
                 <div class="resume-section-content">
@@ -61,9 +64,10 @@
                     echo "<td>".$nama."</td>";
                     echo "<td>".$kehadiran."</td>";
                     echo "<td>".$skp."</td>";
+                    $nip2 = base64_encode($nip);
                     echo '<td>
                         <a href="penghasilan-edit.php?periode='.$periode.'&nip='.$nip.'&tgl='.$tanggal.'" class="badge badge-info">edit</a>
-                        <a href="#" class="badge badge-danger" onclick="return confirm(\'Yakin Hapus '.$nama.' | Pemotongan Kehadiran: '.$kehadiran.' | Nilai SKP: '.$skp.' ?\');">hapus</a>
+                        <a href="penghasilan-hapus.php?nip='.$nip2.'&periode='.$periode2.'" class="badge badge-danger" onclick="return confirm(\'Yakin Hapus '.$nama.' | Pemotongan Kehadiran: '.$kehadiran.' | Nilai SKP: '.$skp.' ?\');">hapus</a>
                         </td>';
                     echo "</tr>";
                     $no++;
@@ -80,11 +84,11 @@
         </tfoot>
     </table>
 
-    <div style="text-align: center; padding-top: 4%">
-        <a href="penghasilan-hapus.php?periode=<?php echo $periode ?>" onclick="return confirm('Yakin Hapus Data Peride Penghasilan <?php echo $tgl ?> ?');">
+    <div style="padding-top: 5%">
+        <a href="periode-hapus.php?periode=<?php echo $periode2 ?>&tgl=<?php echo $tgl2 ?>" onclick="return confirm('Yakin Hapus Data Peride Penghasilan <?php echo $tgl ?> ?');" style="float: left;">
             <button type="submit" class="btn btn-danger mx-sm-3">Hapus Data Penghasilan <?php echo $tgl ?></button>
         </a>
-        <a href="periode.php">
+        <a href="periode.php" style="float: right;">
             <button type="button" class="btn btn-secondary">Kembali List Periode Penghasilan</button>
         </a>
     </div>

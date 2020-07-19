@@ -21,6 +21,9 @@
                     $rekening = $row['no_rekening'];
                     $golongan = $row['nama_gol_pangkat'];
                     $jabatan = $row['nama_jabatan'];
+
+                    $nip2 = base64_encode($nip);
+                    $nama2 = base64_encode($nama);
                 }
             ?>
 
@@ -44,8 +47,8 @@
 							    <a href="pegawai.php">
 							    	<button type="button" class="btn btn-secondary">Kembali</button>
 							    </a> &emsp;
-							    <a href="pegawai-hapus.php?nip=<?php echo $nip ?>">
-							    	<button type="button" class="btn btn-danger" onclick="return confirm('Yakin Hapus ?');">Hapus</button>
+							    <a href="pegawai-hapus.php?nip=<?php echo $nip2 ?>&nama=<?php echo $nama2 ?>">
+							    	<button type="button" class="btn btn-danger" onclick="return confirm('Yakin Hapus <?php echo $nama ?>?');">Hapus</button>
 							    </a> 
 							  </div>
 							</div>

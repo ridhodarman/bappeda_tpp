@@ -17,27 +17,27 @@
 		            <form action="jabatan-tambah-act.php" method="post">
 			                    <div style="padding-bottom: 2%">
 			                    	<label>Nama Jabatan</label>
-									<input type="text" class="form-control" name="nama" >
+									<input type="text" class="form-control" name="nama" required="">
 			                    </div>
 						    	
 						    	<div style="padding-bottom: 2%">
 									<label>TPP Berdasarkan Beban Kerja Pada SKP: </label>
-									<input type="number" class="form-control" name="skp" >
+									<input type="number" class="form-control" name="skp" required="">
 								</div>
 
 								<div style="padding-bottom: 2%">
 									<label>TPP Berdasarkan Kehadiran: </label>
-									<input type="number" class="form-control" name="kehadiran" >
+									<input type="number" class="form-control" name="kehadiran" required="">
 								</div>
 
 								<div style="padding-bottom: 2%">
 									<label>Besaran Potongan BPJS: ( % )</label>
-									<input type="number" class="form-control" name="bpjs" >
+									<input type="number" class="form-control" name="bpjs" required="">
 								</div>
 
 								<div style="padding-bottom: 2%">
 									<label>Tambahan Penghasilan Berdasarkan Pertimbangan Objektif lainnya:</label>
-									<input type="number" class="form-control" name="objektif" >
+									<input type="number" class="form-control" name="objektif" required="">
 								</div>
 
 								<div style="text-align: center;">

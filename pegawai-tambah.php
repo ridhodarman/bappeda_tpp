@@ -17,22 +17,22 @@
 		            <form action="pegawai-tambah-act.php" method="post">
 			                    <div style="padding-bottom: 2%">
 			                    	<label>NIP:</label>
-									<input type="text" class="form-control" name="nip" >
+									<input type="text" class="form-control" name="nip" required="">
 			                    </div>
+
+			                    <div style="padding-bottom: 2%">
+									<label>Nama:</label>
+									<input type="text" class="form-control" name="nama" required="">
+								</div>
 						    	
 						    	<div style="padding-bottom: 2%">
 									<label>No. Rekening:</label>
-									<input type="text" class="form-control" name="nama" >
-								</div>
-
-								<div style="padding-bottom: 2%">
-									<label>Nama:</label>
-									<input type="text" class="form-control" name="rekening" >
+									<input type="text" class="form-control" name="rekening" required="">
 								</div>
 
 								<div style="padding-bottom: 2%">
 									<label>Golongan:</label>
-									<select class="form-control" name="golongan" id="golongan">
+									<select class="form-control" name="golongan" id="golongan" required="">
 										<option></option>
 			                            <?php                
 			                                $sql=mysqli_query($con, "SELECT * FROM golongan");
@@ -46,7 +46,7 @@
 
 								<div style="padding-bottom: 2%">
 									<label>Jabatan:</label>
-									<select class="form-control" name="jabatan" id="jabatan">
+									<select class="form-control" name="jabatan" id="jabatan" required="">
 										<option></option>
 			                            <?php                
 			                                $sql=mysqli_query($con, "SELECT * FROM jabatan");
@@ -59,7 +59,7 @@
 								</div>
 
 								<div style="text-align: center;">
-									<button type="submit" class="btn btn-success mx-sm-3">Tambah</button>
+									<button type="submit" class="btn btn-success mx-sm-3" name="pegawai">Tambah</button>
 									<a href="pegawai.php">
 										<button type="button" class="btn btn-secondary">Kembali</button>
 									</a>
