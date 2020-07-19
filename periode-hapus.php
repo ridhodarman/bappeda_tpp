@@ -1,4 +1,12 @@
 <?php
+session_start();
+if(!isset($_SESSION['role'])) {
+    die ('
+        <script>alert("silahkan login terlebih dahulu")</script>
+        <meta http-equiv="REFRESH" content="0.1;url=index.php">
+    ');
+}
+    
 if(isset($_GET['periode']) && $_GET['tgl']!=null) {
     include('assets/koneksi.php');
     $id = mysqli_real_escape_string($con, base64_decode($_GET['periode']));

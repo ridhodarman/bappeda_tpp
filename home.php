@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['role'])) {
+        die ('
+            <script>alert("silahkan login terlebih dahulu")</script>
+            <meta http-equiv="REFRESH" content="0.1;url=index.php">
+        ');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -33,7 +42,7 @@
                         <img src="assets/logo.png">
                     </div>
                     <p class="lead mb-5">
-                        Sistem Informasi Penggajian Tambahan Penghasilan Badan Perencanaan Pembangunan Daerah (Bappeda) Kota Padang, Provinsi Sumatra Barat
+                        Sistem Informasi Penggajian Tambahan Penghasilan Badan Perencanaan & Pembangunan Daerah (Bappeda) Kota Padang, Provinsi Sumatra Barat
                     </p>
                     <a href="">
                         <button class="btn btn-warning" style="color: gray"><i class="fa fa-user-circle"></i> Kelola Data Akun</button>
@@ -41,7 +50,7 @@
                     <a href="" style="padding: 3%">
                         <button class="btn btn-secondary"><i class="fa fa-cog"></i> Pengaturan Akun</button>
                     </a>
-                    <a href="">
+                    <a href="logout.php">
                         <button class="btn btn-light" style="border-color: gray"><i class="fa fa-sign-out-alt"></i> Logout</button>
                     </a>
                 </div>

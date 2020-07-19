@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['role'])) {
+        die ('
+            <script>alert("silahkan login terlebih dahulu")</script>
+            <meta http-equiv="REFRESH" content="0.1;url=index.php">
+        ');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
