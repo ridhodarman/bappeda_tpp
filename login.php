@@ -18,6 +18,7 @@ $cek = mysqli_num_rows($data);
 if($cek > 0){
 	$_SESSION['username'] = $username;
 	$row=mysqli_fetch_array($data);
+	$_SESSION['nama'] = $row['nama_pengguna'];
 	$_SESSION['role'] = $row['role'];
 	header("location:home.php");
 }else{

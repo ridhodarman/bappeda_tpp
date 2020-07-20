@@ -44,12 +44,23 @@
                     <p class="lead mb-5">
                         Sistem Informasi Penggajian Tambahan Penghasilan Badan Perencanaan & Pembangunan Daerah (Bappeda) Kota Padang, Provinsi Sumatra Barat
                     </p>
-                    <a href="">
-                        <button class="btn btn-warning" style="color: gray"><i class="fa fa-user-circle"></i> Kelola Data Akun</button>
+
+                    <p>
+                        Welcome <strong><?php echo $_SESSION['nama'] ?></strong> !
+                        <br/>
+                        <small>(<?php echo $_SESSION['role'] ?>)</small>
+                    </p>
+
+                    <?php if($_SESSION['role'] == "admin") { ?>
+                    <a href="akun.php">
+                        <button class="btn btn-primary"><i class="fa fa-user-circle"></i> Kelola Data Akun</button>
                     </a>
+                    <?php } ?>
+                    
                     <a href="" style="padding: 3%">
-                        <button class="btn btn-secondary"><i class="fa fa-cog"></i> Pengaturan Akun</button>
+                        <button class="btn btn-info"><i class="fa fa-cog"></i> Pengaturan Akun</button>
                     </a>
+
                     <a href="logout.php">
                         <button class="btn btn-light" style="border-color: gray"><i class="fa fa-sign-out-alt"></i> Logout</button>
                     </a>
