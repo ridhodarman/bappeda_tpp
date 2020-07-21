@@ -7,19 +7,16 @@
         ');
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!-- Navigation-->
-        <?php include('assets/menu.php') ?>
-        <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- About-->
-            <section class="resume-section" id="akun">
-                <div class="resume-section-content">
-                    <h4 class="mb-0">
-                        Data Akun
-                    </h4>
+<!-- Navigation-->
+<?php include('assets/menu.php') ?>
+<!-- Page Content-->
+<div class="container-fluid p-0">
+    <!-- About-->
+    <section class="resume-section" id="akun">
+        <div class="resume-section-content">
+            <h4 class="mb-0">
+                Data Akun
+            </h4>
 
 <a href="akun-tambah.php" style="float: right; padding-bottom: 2%">
     <button class="btn btn-light" style="border-color: lightgray">Tambah Data</button>
@@ -48,8 +45,8 @@
                     echo "<td>".$data['role']."</td>";
                     $username2 = base64_encode($username);
                     echo '<td>
-                        <a href="golongan-edit.php?username='.$username.'" class="badge badge-info">edit</a>
-                        <a href="golongan-hapus.php?username='.$username2.'" class="badge badge-danger" onclick="return confirm(\'Yakin Hapus '.$username.'?\');">hapus</a>
+                        <a href="akun-edit.php?username='.$username.'" class="badge badge-info">edit</a>
+                        <a href="akun-hapus.php?username='.$username2.'" class="badge badge-danger" onclick="return confirm(\'Yakin Hapus '.$username.'?\');">hapus</a>
                         </td>';
                     echo "</tr>";
                     $no++;
@@ -70,18 +67,9 @@
 	<a href="home.php">
 	    <button class="btn btn-secondary" style="border-color: lightgray"><i class="fa fa-home"></i> Back to home</button>
 	</a>
-                </div>
-            </section>
-        </div>
-        <!-- Bootstrap core JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> -->
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+    
+<?php include('assets/footer.php') ?>
+
 <script type="text/javascript">
     $(document).ready(function() {
     $('#example').DataTable();

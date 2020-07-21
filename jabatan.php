@@ -7,9 +7,6 @@
         ');
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
         <!-- Navigation-->
         <?php include('assets/menu.php') ?>
         <!-- Page Content-->
@@ -21,7 +18,7 @@
                         Data Jabatan
                     </h4>
 
-<a href="jabatan-tambah.php" style="float: right; padding-bottom: 2%">
+<a href="jabatan-tambah.php" style="float: right; padding-bottom: 2%" name="akses">
     <button class="btn btn-light" style="border-color: lightgray">Tambah Data</button>
 </a>
     
@@ -48,7 +45,7 @@
                     $nama2 = base64_encode($nama);
                     echo '<td>
                         <a href="jabatan-detail.php?id='.$id.'" class="badge badge-info">detail</a>
-                        <a href="jabatan-hapus.php?id='.$id2.'&nama='.$nama2.'" class="badge badge-danger" onclick="return confirm(\'Yakin Hapus '.$nama.'?\');">hapus</a>
+                        <a name="akses" href="jabatan-hapus.php?id='.$id2.'&nama='.$nama2.'" class="badge badge-danger" onclick="return confirm(\'Yakin Hapus '.$nama.'?\');">hapus</a>
                         </td>';
                     echo "</tr>";
                     $no++;
@@ -63,20 +60,17 @@
             </tr>
         </tfoot>
     </table>
-                </div>
-            </section>
-        </div>
-        <!-- Bootstrap core JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> -->
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+<?php include('assets/footer.php') ?>
 <script type="text/javascript">
     $(document).ready(function() {
     $('#example').DataTable();
 } );
 </script>
+<?php
+if($_SESSION['role'] == "admin" || $_SESSION['role'] == "sekretaris") {
+    //
+}
+else {
+    echo"<script>$(`[name ='akses']`).hide();</script>";
+}
+?>

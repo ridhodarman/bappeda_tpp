@@ -7,9 +7,6 @@
         ');
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
         <!-- Navigation-->
         <?php include('assets/menu.php') ?>
         <!-- Page Content-->
@@ -50,32 +47,28 @@
 							    <p class="card-text"><strong> No. Rekening : </strong> <?php echo $rekening ?></p>
 							    <p class="card-text"><strong> Golongan : </strong> <?php echo $golongan ?></p>
 							    <p class="card-text"><strong> Jabatan : </strong> <?php echo $jabatan ?></p>
-							    <a href="pegawai-edit.php?nip=<?php echo $nip ?>">
+							    <a name="akses" href="pegawai-edit.php?nip=<?php echo $nip ?>">
 							    	<button type="button" class="btn btn-info">Edit</button>
 							    </a> &emsp;
 							    <a href="pegawai.php">
 							    	<button type="button" class="btn btn-secondary">Kembali</button>
 							    </a> &emsp;
-							    <a href="pegawai-hapus.php?nip=<?php echo $nip2 ?>&nama=<?php echo $nama2 ?>">
+							    <a name="akses" href="pegawai-hapus.php?nip=<?php echo $nip2 ?>&nama=<?php echo $nama2 ?>">
 							    	<button type="button" class="btn btn-danger" onclick="return confirm('Yakin Hapus <?php echo $nama ?>?');">Hapus</button>
 							    </a> 
 							  </div>
 							</div>
 						</center>
-	                </div>
-	            </section>
-	            
-        </div>
-        <!-- Bootstrap core JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> -->
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+<?php include('assets/footer.php') ?>
 <script type="text/javascript">
     $("#golongan").val("<?php echo $golongan ?>");
     $("#jabatan").val("<?php echo $jabatan ?>");
 </script>
+<?php
+if($_SESSION['role'] == "admin" || $_SESSION['role'] == "sekretaris") {
+    //
+}
+else {
+    echo"<script>$(`[name ='akses']`).hide();</script>";
+}
+?>

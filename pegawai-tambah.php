@@ -1,15 +1,15 @@
 <?php
     session_start();
-    if(!isset($_SESSION['role'])) {
+    if($_SESSION['role'] == "admin" || $_SESSION['role'] == "sekretaris") {
+	    //
+	}
+	else {
         die ('
             <script>alert("silahkan login terlebih dahulu")</script>
             <meta http-equiv="REFRESH" content="0.1;url=index.php">
         ');
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
         <!-- Navigation-->
         <?php include('assets/menu.php') ?>
         <!-- Page Content-->
@@ -73,18 +73,6 @@
 										<button type="button" class="btn btn-secondary">Kembali</button>
 									</a>
 								</div>
-			                </div>
-			            </section>
 			        </form>
-				</div>
-		    </div>
-        </div>
-        <!-- Bootstrap core JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> -->
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+<?php include('assets/footer.php') ?>>
 </html>

@@ -1,27 +1,30 @@
-<meta charset="utf-8" />
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Resume - Start Bootstrap Theme</title>
         <link rel="icon" type="image/x-icon" href="assets/pdg.png" />
         <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="assets/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
-        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>   
+        <script type="text/javascript" src="assets/jquery-3.5.1.js"></script>
+        <script type="text/javascript" src="assets/jquery-3.5.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="assets/datatables.min.css"/>
+        <script type="text/javascript" src="assets/datatables.min.js"></script>   
         <?php include('assets/koneksi.php') ?>     
     </head>
     <body id="page-top">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-awak fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+    <a class="navbar-brand js-scroll-trigger" href="home.php">
         <span class="d-block d-lg-none">Clarence Taylor</span>
         <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/pdg.png" alt="" style="filter: brightness(85%);" /></span>
     </a>

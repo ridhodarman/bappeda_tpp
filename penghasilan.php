@@ -7,9 +7,6 @@
         ');
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
         <!-- Navigation-->
         <?php include('assets/menu.php') ?>
         <!-- Page Content-->
@@ -39,7 +36,7 @@
                         <span class="text-primary"><?php echo $tgl; ?></span>
                     </h4>
 
-<a href="penghasilan-tambah.php?periode=<?php echo $periode ?>&tgl=<?php echo $tanggal ?>" style="float: right; padding-bottom: 2%">
+<a href="penghasilan-tambah.php?periode=<?php echo $periode ?>&tgl=<?php echo $tanggal ?>" name="akses" style="float: right; padding-bottom: 2%">
     <button class="btn btn-light" style="border-color: lightgray">Tambah Data</button>
 </a>
     
@@ -49,7 +46,7 @@
                 <th>Nama</th>
                 <th>Pemotongan Kehadiran (%)</th>
                 <th>Nilai SKP</th>
-                <th>Aksi</th>
+                <th name="akses">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -74,7 +71,7 @@
                     echo "<td>".$kehadiran."</td>";
                     echo "<td>".$skp."</td>";
                     $nip2 = base64_encode($nip);
-                    echo '<td>
+                    echo '<td name="akses">
                         <a href="penghasilan-edit.php?periode='.$periode.'&nip='.$nip.'&tgl='.$tanggal.'" class="badge badge-info">edit</a>
                         <a href="penghasilan-hapus.php?nip='.$nip2.'&periode='.$periode2.'" class="badge badge-danger" onclick="return confirm(\'Yakin Hapus '.$nama.' | Pemotongan Kehadiran: '.$kehadiran.' | Nilai SKP: '.$skp.' ?\');">hapus</a>
                         </td>';
@@ -88,33 +85,30 @@
                 <th>Nama</th>
                 <th>Pemotongan Kehadiran (%)</th>
                 <th>Nilai SKP</th>
-                <th>Aksi</th>
+                <th name="akses">Aksi</th>
             </tr>
         </tfoot>
     </table>
 
     <div style="padding-top: 5%">
-        <a href="periode-hapus.php?periode=<?php echo $periode2 ?>&tgl=<?php echo $tgl2 ?>" onclick="return confirm('Yakin Hapus Data Peride Penghasilan <?php echo $tgl ?> ?');" style="float: left;">
+        <a name="akses" href="periode-hapus.php?periode=<?php echo $periode2 ?>&tgl=<?php echo $tgl2 ?>" onclick="return confirm('Yakin Hapus Data Peride Penghasilan <?php echo $tgl ?> ?');" style="float: left;">
             <button type="submit" class="btn btn-danger mx-sm-3">Hapus Data Penghasilan <?php echo $tgl ?></button>
         </a>
         <a href="periode.php" style="float: right;">
             <button type="button" class="btn btn-secondary">Kembali List Periode Penghasilan</button>
         </a>
     </div>
-                </div>
-            </section>
-        </div>
-        <!-- Bootstrap core JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> -->
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+<?php include('assets/footer.php') ?>
 <script type="text/javascript">
     $(document).ready(function() {
     $('#example').DataTable();
 } );
 </script>
+<?php
+if($_SESSION['role'] == "admin" || $_SESSION['role'] == "bendahara") {
+    //
+}
+else {
+    echo"<script>$(`[name ='akses']`).hide();</script>";
+}
+?>

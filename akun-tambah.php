@@ -7,9 +7,6 @@
         ');
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
         <!-- Navigation-->
         <?php include('assets/menu.php') ?>
         <!-- Page Content-->
@@ -31,7 +28,7 @@
 
                                 <div style="padding-bottom: 2%">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" id="pass1" required placeholder="password yang digunakan untuk login">
+                                    <input type="password" class="form-control" id="pass1" required placeholder="password yang digunakan untuk login" onkeyup="cekpass()">
                                 </div>
 
                                 <div style="padding-bottom: 2%">
@@ -59,20 +56,7 @@
 										<button type="button" class="btn btn-secondary">Kembali</button>
 									</a>
 								</div>
-			                </div>
-			            </section>
-			        </form>
-				</div>
-		    </div>
-        </div>
-        <!-- Bootstrap core JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> -->
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+<?php include('assets/footer.php') ?>
     <script type="text/javascript">
         function cekpass(){
             let pass1 = $( "#pass1" ).val();

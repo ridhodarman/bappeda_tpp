@@ -7,21 +7,18 @@
         ');
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!-- Navigation-->
-        <?php include('assets/menu.php') ?>
-        <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- About-->
-            <section class="resume-section" id="golongan">
-                <div class="resume-section-content">
-                    <h4 class="mb-0">
-                        Data Golongan
-                    </h4>
+<!-- Navigation-->
+<?php include('assets/menu.php') ?>
+<!-- Page Content-->
+<div class="container-fluid p-0">
+    <!-- About-->
+    <section class="resume-section" id="golongan">
+        <div class="resume-section-content">
+            <h4 class="mb-0">
+                Data Golongan
+            </h4>
 
-<a href="golongan-tambah.php" style="float: right; padding-bottom: 2%">
+<a href="golongan-tambah.php" style="float: right; padding-bottom: 2%" name="akses">
     <button class="btn btn-light" style="border-color: lightgray">Tambah Data</button>
 </a>
 
@@ -31,7 +28,7 @@
                 <th>No</th>
                 <th>Pangkat/ Golongan</th>
                 <th>Pajak</th>
-                <th>Aksi</th>
+                <th name="akses">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -52,7 +49,7 @@
                     }
                     $id2 = base64_encode($id);
                     $nama2 = base64_encode($nama);
-                    echo '<td>
+                    echo '<td name="akses">
                         <a href="golongan-edit.php?id='.$id.'" class="badge badge-info">edit</a>
                         <a href="golongan-hapus.php?id='.$id2.'&nama='.$nama2.'" class="badge badge-danger" onclick="return confirm(\'Yakin Hapus '.$nama.'?\');">hapus</a>
                         </td>';
@@ -66,24 +63,23 @@
                 <th>No</th>
                 <th>Pangkat/ Golongan</th>
                 <th>Pajak</th>
-                <th>Aksi</th>
+                <th name="akses">Aksi</th>
             </tr>
         </tfoot>
     </table>
-                </div>
-            </section>
-        </div>
-        <!-- Bootstrap core JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> -->
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+
+<?php include('assets/footer.php') ?>
+
 <script type="text/javascript">
     $(document).ready(function() {
     $('#example').DataTable();
 } );
 </script>
+<?php
+if($_SESSION['role'] == "admin" || $_SESSION['role'] == "sekretaris") {
+    //
+}
+else {
+    echo"<script>$(`[name ='akses']`).hide();</script>";
+}
+?>

@@ -7,9 +7,6 @@
         ');
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
         <!-- Navigation-->
         <?php include('assets/menu.php') ?>
         <!-- Page Content-->
@@ -21,7 +18,7 @@
                         Periode TPP
                     </h4>
 
-<a href="periode-tambah.php" style="float: right; padding-bottom: 2%;">
+<a href="periode-tambah.php" name="akses" style="float: right; padding-bottom: 2%;">
     <button class="btn btn-light" style="border-color: lightgray">Tambah Data</button>
 </a>
 
@@ -59,7 +56,7 @@
                     echo "<td>".$tanggal."</td>";
                     $id=$data['id_periode'];
                     echo '<td>
-                        <a href="periode-edit.php?periode='.$id.'" class="badge badge-info">edit</a>
+                        <a name="akses" href="periode-edit.php?periode='.$id.'" class="badge badge-info">edit</a>
                         <a href="penghasilan.php?periode='.$id.'" class="badge badge-secondary">kelola data</a>
                         <a href="cetak.php?periode='.$id.'" class="badge badge-warning" style="color: gray">cetak laporan</a>
                         </td>';
@@ -77,21 +74,18 @@
         </tfoot>
     </table>
 
-    
-                </div>
-            </section>
-        </div>
-        <!-- Bootstrap core JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> -->
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+<?php include('assets/footer.php') ?>
 <script type="text/javascript">
     $(document).ready(function() {
     $('#example').DataTable();
 } );
 </script>
+
+<?php
+if($_SESSION['role'] == "admin" || $_SESSION['role'] == "bendahara") {
+    //
+}
+else {
+    echo"<script>$(`[name ='akses']`).hide();</script>";
+}
+?>

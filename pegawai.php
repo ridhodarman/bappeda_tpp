@@ -7,9 +7,6 @@
         ');
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
         <!-- Navigation-->
         <?php include('assets/menu.php') ?>
         <!-- Page Content-->
@@ -20,7 +17,7 @@
                     <h4 class="mb-0">
                         Data Pegawai
                     </h4>
-<a href="pegawai-tambah.php" style="float: right; padding-bottom: 2%">
+<a href="pegawai-tambah.php" style="float: right; padding-bottom: 2%" name="akses">
     <button class="btn btn-light" style="border-color: lightgray">Tambah Data</button>
 </a>
 
@@ -67,18 +64,7 @@
             </tr>
         </tfoot>
     </table>
-                </div>
-            </section>
-        </div>
-        <!-- Bootstrap core JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> -->
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+<?php include('assets/footer.php') ?>
 <script type="text/javascript">
     $(document).ready(function() {
     $('#example').DataTable();

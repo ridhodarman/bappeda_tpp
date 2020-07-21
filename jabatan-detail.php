@@ -7,9 +7,6 @@
         ');
     }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
         <!-- Navigation-->
         <?php include('assets/menu.php') ?>
         <!-- Page Content-->
@@ -47,32 +44,28 @@
                                     Rp. <?php echo number_format($kehadiran) ?></p>
 							    <p class="card-text"><strong> Besaran Potongan BPJS : </strong> <?php echo $bpjs ?>%</p>
 							    <p class="card-text"><strong> Tambahan Penghasilan Berdasarkan Pertimbangan Objektif lainnya : </strong> Rp. <?php echo number_format($objektif) ?></p>
-							    <a href="jabatan-edit.php?id=<?php echo $id ?>">
+							    <a name="akses" href="jabatan-edit.php?id=<?php echo $id ?>">
 							    	<button type="button" class="btn btn-info">Edit</button>
 							    </a> &emsp;
 							    <a href="jabatan.php">
 							    	<button type="button" class="btn btn-secondary">Kembali</button>
 							    </a> &emsp;
-							    <a href="jabatan-hapus.php?id=<?php echo $id2 ?>&nama=<?php echo $nama2 ?>">
+							    <a name="akses" href="jabatan-hapus.php?id=<?php echo $id2 ?>&nama=<?php echo $nama2 ?>">
 							    	<button type="button" class="btn btn-danger" onclick="return confirm('Yakin Hapus Jabatan: <?php echo $nama ?>?');">Hapus</button>
 							    </a> 
 							  </div>
 							</div>
 						</center>
-	                </div>
-	            </section>
-	            
-        </div>
-        <!-- Bootstrap core JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> -->
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
-</html>
+<?php include('assets/footer.php') ?>
 <script type="text/javascript">
     $("#golongan").val("<?php echo $golongan ?>");
     $("#jabatan").val("<?php echo $jabatan ?>");
 </script>
+<?php
+if($_SESSION['role'] == "admin" || $_SESSION['role'] == "sekretaris") {
+    //
+}
+else {
+    echo"<script>$(`[name ='akses']`).hide();</script>";
+}
+?>
