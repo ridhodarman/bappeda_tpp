@@ -20,7 +20,7 @@
 <?php include('assets/koneksi.php') ?> 
 <br/>
 <center>
-<a href="print.php"> 
+<a href="print.php?periode=<?php echo $_GET['periode'] ?>"> 
     <button type="button" class="btn btn-primary">
       <svg class="bi bi-file-earmark-break" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd" d="M9 1H4a2 2 0 0 0-2 2v6h1V3a1 1 0 0 1 1-1h5v2.5A1.5 1.5 0 0 0 10.5 6H13v3h1V6L9 1zm5 11h-1v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1H2v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1zM0 10.5a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
@@ -66,6 +66,7 @@
         </thead>
         <tbody>
             <?php
+            	$periode = mysqli_real_escape_string($con, $_GET['periode']);
                 $sql=mysqli_query($con, "
                     SELECT pegawai.nama, jabatan.nama_jabatan, pegawai.no_rekening, golongan.nama_gol_pangkat,
                     jabatan.beban_kerja_skp, jabatan.kehadiran,
@@ -75,7 +76,8 @@
                     LEFT JOIN pegawai ON pegawai.nip=penerimaan.nip
                     LEFT JOIN jabatan ON pegawai.id_jabatan=jabatan.id_jabatan
                     LEFT JOIN golongan ON pegawai.id_golongan=golongan.id_golongan
-                    order by jabatan.id_jabatan
+                    WHERE id_periode = '$periode'
+                    ORDER BY jabatan.id_jabatan
                     ");
                 $no=1;
                 while ($data=mysqli_fetch_array($sql)) {

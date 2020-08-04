@@ -53,6 +53,7 @@ include('assets/koneksi.php') ?>
         </thead>
         <tbody>
             <?php
+                $periode = mysqli_real_escape_string($con, $_GET['periode']);
                 $sql=mysqli_query($con, "
                     SELECT pegawai.nama, jabatan.nama_jabatan, pegawai.no_rekening, golongan.nama_gol_pangkat,
                     jabatan.beban_kerja_skp, jabatan.kehadiran,
@@ -62,7 +63,8 @@ include('assets/koneksi.php') ?>
                     LEFT JOIN pegawai ON pegawai.nip=penerimaan.nip
                     LEFT JOIN jabatan ON pegawai.id_jabatan=jabatan.id_jabatan
                     LEFT JOIN golongan ON pegawai.id_golongan=golongan.id_golongan
-                    order by jabatan.id_jabatan
+                    WHERE id_periode = '$periode'
+                    ORDER BY jabatan.id_jabatan
                     ");
                 $no=1;
                 while ($data=mysqli_fetch_array($sql)) {
